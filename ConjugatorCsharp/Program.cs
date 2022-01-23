@@ -16,135 +16,40 @@ namespace ConjugatorCsharp
             int person = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Is it one person (1) or multiple people (2)?");
             int number = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("What ending does it have? ar (1); er (2); or ir (3)?");
-            int ending = Convert.ToInt32(Console.ReadLine());
-            if (ending == 1)
+
+            string[,] arED = new string[3, 2]{
+                                {"o", "amos"},
+                                {"as", "ais"},
+                                {"a", "an"}
+                            };
+            string[,] erED = new string[3, 2]{
+                                {"e", "emos"},
+                                {"es", "eis"},
+                                {"e", "en"}
+                            };
+            string[,] irED = new string[3, 2]{
+                                {"o", "imos"},
+                                {"es", "is"},
+                                {"e", "en"}
+                            };
+
+            if(root.EndsWith("ar") == true)
             {
-                switch (person)
-                {
-                    case 1:
-                        switch (number)
-                        {
-                            case 1:
-                                Console.WriteLine(root.Trim('a', 'r') + "o");
-                                break;
-                            case 2:
-                                Console.WriteLine(root.Trim('a', 'r') + "amos");
-                                break;
-                        }
-                        break;
-                    case 2:
-                        switch (number)
-                        {
-                            case 1:
-                                Console.WriteLine(root.Trim('a', 'r') + "as");
-                                break;
-                            case 2:
-                                Console.WriteLine(root.Trim('a', 'r') + "áis");
-                                break;
-                        }
-                        break;
-                    case 3:
-                        switch (number)
-                        {
-                            case 1:
-                                Console.WriteLine(root.Trim('a', 'r') + "a");
-                                break;
-                            case 2:
-                                Console.WriteLine(root.Trim('a', 'r') + "an");
-                                break;
-                        }
-                        break;
-                    default:
-                        break;
-                }
+                Console.WriteLine(root.Trim('a', 'r') + arED[person, number]);
             }
-            else if (ending == 2)
+            else if(root.EndsWith("er") == true)
             {
-                switch (person)
-                {
-                    case 1:
-                        switch (number)
-                        {
-                            case 1:
-                                Console.WriteLine(root.Trim('e', 'r') + "o");
-                                break;
-                            case 2:
-                                Console.WriteLine(root.Trim('e', 'r') + "emos");
-                                break;
-                        }
-                        break;
-                    case 2:
-                        switch (number)
-                        {
-                            case 1:
-                                Console.WriteLine(root.Trim('e', 'r') + "es");
-                                break;
-                            case 2:
-                                Console.WriteLine(root.Trim('e', 'r') + "éis");
-                                break;
-                        }
-                        break;
-                    case 3:
-                        switch (number)
-                        {
-                            case 1:
-                                Console.WriteLine(root.Trim('e', 'r') + "e");
-                                break;
-                            case 2:
-                                Console.WriteLine(root.Trim('e', 'r') + "en");
-                                break;
-                        }
-                        break;
-                    default:
-                        break;
-                }
+                Console.WriteLine(root.Trim('e', 'r') + erED[person, number]);
             }
-            else if (ending == 3)
+            else if(root.EndsWith("ir") == true)
             {
-                switch (person)
-                {
-                    case 1:
-                        switch (number)
-                        {
-                            case 1:
-                                Console.WriteLine(root.Trim('i', 'r') + "o");
-                                break;
-                            case 2:
-                                Console.WriteLine(root.Trim('i', 'r') + "imos");
-                                break;
-                        }
-                        break;
-                    case 2:
-                        switch (number)
-                        {
-                            case 1:
-                                Console.WriteLine(root.Trim('i', 'r') + "es");
-                                break;
-                            case 2:
-                                Console.WriteLine(root.Trim('i', 'r') + "ís");
-                                break;
-                        }
-                        break;
-                    case 3:
-                        switch (number)
-                        {
-                            case 1:
-                                Console.WriteLine(root.Trim('i', 'r') + "e");
-                                break;
-                            case 2:
-                                Console.WriteLine(root.Trim('i', 'r') + "en");
-                                break;
-                        }
-                        break;
-                    default:
-                        break;
-                }
+                Console.WriteLine(root.Trim('i', 'r') + irED[person, number]);
             }
             else
             {
-
+                Console.WriteLine("That root is not valid.");
             }
+            
         }
     }
 }
